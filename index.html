@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f5ef">
+  <title>Launchly - Discover today's best new products</title>
+  <meta name="description" content="Discover, vote, and launch remarkable digital products on Launchly.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Launchly home">
+      <span class="brand-mark" aria-hidden="true">L</span>
+      <span>Launchly</span>
+    </a>
+
+    <form class="search" id="searchForm" role="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.8 18a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4Zm5-1.8 4.7 4.7"/></svg>
+      <input id="searchInput" type="search" placeholder="Search products..." autocomplete="off" aria-label="Search products">
+      <kbd>/</kbd>
+    </form>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#discover">Discover</a>
+      <a href="#launches">Launches</a>
+      <a href="#makers">Makers</a>
+      <a href="#newsletter">Newsletter</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.64 5.64l1.42 1.42M16.94 16.94l1.42 1.42M18.36 5.64l-1.42 1.42M7.06 16.94l-1.42 1.42"/><circle cx="12" cy="12" r="4"/></svg>
+      </button>
+      <button class="submit-btn" id="openModal" type="button">Submit</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="discover">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Daily product discoveries</p>
+        <h1>The best new products,<br><em>launched daily.</em></h1>
+        <p class="hero-text">Find the tools, apps, and ideas shaping what comes next. Vote for your favorites and support independent makers.</p>
+      </div>
+      <aside class="daily-card" aria-label="Daily highlights">
+        <div class="daily-card-head">
+          <span>Today's pulse</span>
+          <span id="todayDate">NOV 20</span>
+        </div>
+        <div class="pulse-grid">
+          <div><strong id="productCount">18</strong><span>launches</span></div>
+          <div><strong>4.2k</strong><span>votes</span></div>
+          <div><strong>92</strong><span>makers</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="filters" aria-label="Product filters">
+      <div class="filter-tabs" role="tablist">
+        <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">Today</button>
+        <button class="filter-tab" data-filter="week" role="tab" aria-selected="false">This week</button>
+        <button class="filter-tab" data-filter="month" role="tab" aria-selected="false">This month</button>
+      </div>
+      <button class="category-filter" id="categoryFilter" type="button">All categories <span>⌄</span></button>
+    </section>
+
+    <section class="feed-layout" id="launches">
+      <div class="feed-head">
+        <div>
+          <p class="section-index">01 / TODAY</p>
+          <h2>Top launches</h2>
+        </div>
+        <p id="resultCount">8 products</p>
+      </div>
+
+      <div class="product-grid" id="productGrid">
+        <article class="product-card featured" data-category="AI" data-period="month" data-name="Canvas AI Visual workspace">
+          <div class="product-art art-coral">
+            <span class="art-label">FEATURED</span>
+            <div class="canvas-window">
+              <div class="canvas-top"><i></i><i></i><i></i></div>
+              <div class="canvas-body">
+                <span class="shape shape-a"></span>
+                <span class="shape shape-b"></span>
+                <span class="shape shape-c"></span>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="rank">01</div>
+            <div class="product-main">
+              <h3>Canvas AI</h3>
+              <p>Turn rough ideas into visual campaign concepts in minutes.</p>
+              <div class="tags"><span>AI</span><span>Design</span></div>
+            </div>
+            <button class="vote-btn" type="button" aria-label="Vote for Canvas AI"><span>▲</span><b>842</b></button>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="Productivity" data-period="week" data-name="Tempo Focus planner">
+          <div class="product-art art-blue">
+            <div class="tempo-clock"><span>38</span><small>min</small></div>
+          </div>
+          <div class="product-info">
+            <div class="rank">02</div>
+            <div class="product-main">
+              <h3>Tempo</h3>
+              <p>A calm focus timer that adapts to your work rhythm.</p>
+              <div class="tags"><span>Productivity</span></div>
+            </div>
+            <button class="vote-btn" type="button" aria-label="Vote for Tempo"><span>▲</span><b>614</b></button>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="Developer" data-period="today" data-name="Orbit API monitoring">
+          <div class="product-art art-yellow">
+            <div class="orbit-logo"><span></span><i></i></div>
+          </div>
+          <div class="product-info">
+            <div class="rank">03</div>
+            <div class="product-main">
+              <h3>Orbit</h3>
+              <p>API monitoring without dashboards you don't need.</p>
+              <div class="tags"><span>Developer Tools</span></div>
+            </div>
+            <button class="vote-btn" type="button" aria-label="Vote for Orbit"><span>▲</span><b>507</b></button>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="Finance" data-period="today" data-name="Ledger Personal finance">
+          <div class="product-art art-green">
+            <div class="ledger-card">
+              <span>BALANCE</span>
+              <strong>$14,280</strong>
+              <div class="mini-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="rank">04</div>
+            <div class="product-main">
+              <h3>Ledger</h3>
+              <p>Private personal finance for people who hate spreadsheets.</p>
+              <div class="tags"><span>Finance</span></div>
+            </div>
+            <button class="vote-btn" type="button" aria-label="Vote for Ledger"><span>▲</span><b>389</b></button>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="Marketing" data-period="week" data-name="Signal Brand insights">
+          <div class="product-art art-ink">
+            <div class="signal-bars"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="product-info">
+            <div class="rank">05</div>
+            <div class="product-main">
+              <h3>Signal</h3>
+              <p>Understand what audiences really think, live and in context.</p>
+              <div class="tags"><span>Marketing</span><span>AI</span></div>
+            </div>
+            <button class="vote-btn" type="button" aria-label="Vote for Signal"><span>▲</span><b>354</b></button>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="Education" data-period="today" data-name="Nook Interactive learning">
+          <div class="product-art art-lilac">
+            <div class="nook-book"><b>N</b><span>01</span></div>
+          </div>
+          <div class="product-info">
+            <div class="rank">06</div>
+            <div class="product-main">
+              <h3>Nook</h3>
+              <p>Interactive courses built for curious minds at any pace.</p>
+              <div class="tags"><span>Education</span></div>
+            </div>
+            <button class="vote-btn" type="button" aria-label="Vote for Nook"><span>▲</span><b>286</b></button>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="Design" data-period="month" data-name="Framekit UI components">
+          <div class="product-art art-pink">
+            <div class="frame-grid"><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="product-info">
+            <div class="rank">07</div>
+            <div class="product-main">
+              <h3>Framekit</h3>
+              <p>A practical component library for fast-moving product teams.</p>
+              <div class="tags"><span>Design</span><span>Developer Tools</span></div>
+            </div>
+            <button class="vote-btn" type="button" aria-label="Vote for Framekit"><span>▲</span><b>241</b></button>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="Wellness" data-period="today" data-name="Mora Wellness journal">
+          <div class="product-art art-orange">
+            <div class="mora-sun"><span>GOOD<br>MORNING</span></div>
+          </div>
+          <div class="product-info">
+            <div class="rank">08</div>
+            <div class="product-main">
+              <h3>Mora</h3>
+              <p>A two-minute journal for a clearer start to every day.</p>
+              <div class="tags"><span>Wellness</span></div>
+            </div>
+            <button class="vote-btn" type="button" aria-label="Vote for Mora"><span>▲</span><b>198</b></button>
+          </div>
+        </article>
+      </div>
+      <p class="empty-state" id="emptyState">No launches match your search.</p>
+    </section>
+
+    <section class="makers" id="makers">
+      <div>
+        <p class="section-index">02 / COMMUNITY</p>
+        <h2>Made by people<br>who care.</h2>
+      </div>
+      <div class="maker-list">
+        <div class="maker"><div class="maker-avatar avatar-a">AK</div><div><strong>Amina Khan</strong><span>Independent designer</span></div><b>24 launches</b></div>
+        <div class="maker"><div class="maker-avatar avatar-b">JR</div><div><strong>Jules Rivera</strong><span>AI engineer</span></div><b>18 launches</b></div>
+        <div class="maker"><div class="maker-avatar avatar-c">MS</div><div><strong>Mika Stone</strong><span>Product maker</span></div><b>12 launches</b></div>
+      </div>
+    </section>
+
+    <section class="newsletter" id="newsletter">
+      <p>THE LAUNCHLY EDIT</p>
+      <h2>Start your day with<br><em>one great idea.</em></h2>
+      <form id="newsletterForm">
+        <input type="email" id="emailInput" placeholder="you@example.com" required aria-label="Email address">
+        <button type="submit">Join free <span>→</span></button>
+      </form>
+      <small id="newsletterStatus">One thoughtful email, every weekday.</small>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand footer-brand" href="#"><span class="brand-mark">L</span><span>Launchly</span></a>
+    <p>Copyright © 2026 All rights reserved | This template is made with shahroz khan</p>
+    <div><a href="#">About</a><a href="#">Privacy</a><a href="#">Terms</a></div>
+  </footer>
+
+  <dialog class="submit-modal" id="submitModal">
+    <form method="dialog" id="submissionForm">
+      <button class="modal-close" value="cancel" aria-label="Close">×</button>
+      <p class="section-index">SUBMIT A PRODUCT</p>
+      <h2>Share what's next.</h2>
+      <label>Product name<input name="name" type="text" placeholder="Your product" required></label>
+      <label>Website URL<input name="url" type="url" placeholder="https://" required></label>
+      <label>One-line description<textarea name="description" placeholder="What makes it useful?" required></textarea></label>
+      <button class="modal-submit" value="submit">Create launch</button>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
